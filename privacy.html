@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy - VantaGe</title>
+<meta name="description" content="How VantaGe Publisher, the internal tool of the VantaGe brand, accesses, uses and stores data from YouTube API Services.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">Vanta<b>G</b>e</a>
+    <nav class="site" aria-label="Site">
+      <a href="index.html">Home</a>
+      <a href="privacy.html" aria-current="page">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <h1>Privacy Policy</h1>
+  <p class="meta">Effective date: 2026-10-07</p>
+
+  <p>This policy covers <strong>VantaGe Publisher</strong> (the "Tool"), the internal tool of
+  the VantaGe brand, and this website. It says what data the Tool accesses, what it stores,
+  how it uses that data, and how access can be revoked.</p>
+
+  <h2>1. The Tool uses YouTube API Services</h2>
+  <p>The Tool uses <strong>YouTube API Services</strong> (the YouTube Data API and the YouTube
+  Analytics API). Data obtained through them is also subject to the
+  <a href="http://www.google.com/policies/privacy">Google Privacy Policy</a>
+  (http://www.google.com/policies/privacy). Use of the Tool is subject to the
+  <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> - see our
+  <a href="terms.html">Terms of Service</a>.</p>
+
+  <h2>2. Who uses the Tool</h2>
+  <p>The Tool is not offered to the public. Its only user is the owner of the VantaGe brand,
+  who signs in with Google using the account that owns the brand's YouTube channels. The
+  Tool has no user accounts, no sign-up and no other users, and it does not access any other
+  person's YouTube account or data.</p>
+
+  <h2>3. What the Tool accesses</h2>
+  <p>On sign-in the owner grants the Tool these Google OAuth scopes, and the Tool uses each
+  only for the purpose listed:</p>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Scope</th><th>What the Tool does with it</th></tr>
+    <tr>
+      <td><code>https://www.googleapis.com/auth/youtube.upload</code></td>
+      <td>Uploads one of the brand's own finished videos to the brand's channel
+      (<code>videos.insert</code>), together with the title, description, tags, category,
+      language and audience settings the owner prepared. Every video is uploaded as
+      <em>private</em> with a scheduled publication time, and only after the owner has
+      confirmed that specific upload in the terminal.</td>
+    </tr>
+    <tr>
+      <td><code>https://www.googleapis.com/auth/youtube.readonly</code></td>
+      <td>Reads the ID of the channel the signed-in account speaks for
+      (<code>channels.list</code> with <code>mine=true</code>), to check before an upload that
+      the video goes to the intended channel; and, at most once every 7 days, the status of
+      the videos the Tool itself uploaded (<code>videos.list</code>, <code>part=status</code>),
+      to keep the upload journal up to date (section 7). Nothing else is read with this
+      scope.</td>
+    </tr>
+    <tr>
+      <td><code>https://www.googleapis.com/auth/yt-analytics.readonly</code></td>
+      <td>Reads YouTube Analytics reports (<code>reports.query</code>) for the brand's own
+      uploaded videos, per video and per day: views, engaged views, average view duration,
+      average view percentage, likes and subscribers gained.</td>
+    </tr>
+  </table>
+  </div>
+
+  <h2>4. What the Tool stores, and where</h2>
+  <p>Everything the Tool stores is kept on the owner's own computer, in the owner's project
+  folder or (for the sign-in token) in a folder outside it:</p>
+  <ul>
+    <li><strong>Sign-in token.</strong> The OAuth token Google issues is saved in a file outside
+    the project folder that only the owner's computer account can read. Next to it the Tool
+    keeps a small status file with the time access was granted, the time the token is expected
+    to expire (when Google gives it a fixed term), whether the app was in testing or in
+    production at the time, and the scopes granted - not the token itself.</li>
+    <li><strong>Upload journal.</strong> For each video uploaded, one record: the YouTube video
+    ID and link, the scheduled publication time and privacy status as YouTube returned them,
+    the title the owner wrote, the upload time, and the owner's own internal references to
+    the video (its project file, its review record, the owner's confirmation). Videos the
+    owner publishes by hand in YouTube Studio are entered into the same journal by the owner,
+    with the video ID and time read in YouTube Studio; those records do not come from YouTube
+    API Services.</li>
+    <li><strong>Analytics metrics.</strong> For each of the brand's videos, one record per day
+    with the metrics listed in section 3, a log of each collection run (when it ran, which
+    videos were skipped and why), and the owner's daily summary of these metrics.</li>
+  </ul>
+  <p>The channel ID read with <code>youtube.readonly</code> is only compared with the
+  configured channel and shown to the owner; it is not stored by the Tool.</p>
+  <p>The project folder is under version control, and a copy of it is kept in the owner's
+  own repository on GitHub. That copy is a backup for the owner; it is not shared with
+  anyone.</p>
+
+  <h2>5. How the data is used and shared</h2>
+  <ul>
+    <li>The upload journal is used to schedule the brand's videos, to make sure a video is not
+    uploaded twice, and to know which videos to collect analytics for.</li>
+    <li>The analytics metrics are used by the owner to compare how the brand's own videos
+    perform and to improve the next videos.</li>
+    <li>The data is not sold, not used for advertising, and not shared with or disclosed to
+    any third party. No third party serves content or advertisements in the Tool or on this
+    website.</li>
+  </ul>
+
+  <h2>6. Cookies and similar technology</h2>
+  <p>The Tool runs on the owner's computer and does not store or read cookies or similar
+  technology on anyone's device. This website uses no cookies, no scripts and no analytics
+  or tracking. The website is hosted on GitHub Pages; as the host, GitHub processes the
+  requests made to it under its own privacy statement.</p>
+
+  <h2>7. How long data is kept</h2>
+  <ul>
+    <li><strong>Sign-in token</strong> - kept while the owner uses the Tool. It stops working
+    when access is revoked (section 8) or when Google expires it, and the owner can delete the
+    file at any time; revoking access from the Tool itself deletes it (section 8).</li>
+    <li><strong>Analytics metrics</strong> - YouTube Analytics data may be stored long-term
+    under the YouTube API Services Developer Policies. The Tool asks for fresh data for each
+    published video once a day, using the owner's authorization anew each time; the most
+    recent days are re-read and replaced until YouTube's figures settle.</li>
+    <li><strong>Upload journal</strong> - the data YouTube returned for an upload (video ID and
+    link, scheduled publication time, privacy status) is refreshed from YouTube
+    (<code>videos.list</code>) once it is 7 days old; a video YouTube no longer returns is
+    marked as removed. A record whose YouTube data could not be refreshed for 28 days loses
+    that data automatically; the owner's own part of the record (title, internal references)
+    is kept.</li>
+    <li><strong>When access ends</strong> - if Google refuses the authorization (the owner
+    revoked access, or Google expired it) and access is not granted again, every YouTube step
+    stops, and 25 days after the first refusal the Tool automatically deletes all data it
+    obtained through YouTube API Services: the analytics metrics with their collection log
+    and summaries, and the YouTube data in the upload journal. Granting access again before
+    then cancels the deletion. The time of the refusal and of the deletion are kept in the
+    status file next to the token.</li>
+  </ul>
+
+  <h2>8. How to revoke access and delete data</h2>
+  <p>Access granted to the Tool can be revoked at any time on the Google security settings
+  page: <a href="https://security.google.com/settings/security/permissions">https://security.google.com/settings/security/permissions</a>.
+  After that the Tool can no longer upload videos or read any data through YouTube API
+  Services until access is granted again, and the stored data is deleted as described in
+  section 7. The owner can also delete the token file on the computer the Tool runs on.</p>
+  <p>Access can also be revoked from the Tool itself, with one command: the Tool asks Google
+  to revoke its token, deletes the token file and at once deletes all data it obtained
+  through YouTube API Services, for every channel (it first lists what it would do, and acts
+  only when told to). If Google answers that the token is already invalid, the Tool still
+  deletes the token file and the data. The time of the revocation and of the deletion are
+  kept in the status file next to the token, and the deletion is logged.</p>
+  <p>The owner can delete the data the Tool obtained through YouTube API Services at any time,
+  for all channels or for one, with one command of the Tool (it first lists what it would
+  delete, and deletes only when told to). A request to delete this data sent to the contact
+  address below is carried out within 7 days.</p>
+
+  <h2>9. Changes to this policy</h2>
+  <p>If the Tool starts to access, store or use data differently, this page is updated first
+  and the effective date above changes.</p>
+
+  <h2>10. Contact</h2>
+  <p>Questions or complaints about this policy or the Tool:
+  <a href="mailto:vantagereel.ops@gmail.com">vantagereel.ops@gmail.com</a>.</p>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>VantaGe</span>
+    <a href="index.html">Home</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
+</footer>
+</body>
+</html>
